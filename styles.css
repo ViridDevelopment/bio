@@ -1,11 +1,9 @@
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Color Scheme: Blue & Green */
 :root {
     --primary-color: #0077ff;
     --secondary-color: #00e676;
@@ -32,7 +30,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Bootup Animation Styles */
 .bootup-container {
     position: fixed;
     top: 0;
@@ -145,8 +142,8 @@ body {
     display: inline-block;
     background: var(--secondary-color);
     width: 10px;
-    height: 1.2em; /* Match font height */
-    margin-left: 5px; /* Add some space */
+    height: 1.2em;
+    margin-left: 5px;
     vertical-align: middle;
     animation: blink 1s step-end infinite;
 }
@@ -156,7 +153,6 @@ body {
     51%, 100% { opacity: 0; }
 }
 
-/* Main Content Styles */
 .main-content {
     opacity: 1;
     transition: opacity 0.5s ease-in;
@@ -167,7 +163,6 @@ body {
     pointer-events: none;
 }
 
-/* Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -288,7 +283,6 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -396,7 +390,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Code Window */
 .code-window {
     background: var(--light-bg);
     border-radius: 12px;
@@ -432,14 +425,12 @@ body {
     color: var(--text-primary);
 }
 
-/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Section Titles */
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -451,7 +442,6 @@ body {
     background-clip: text;
 }
 
-/* About Section */
 .about {
     padding: 120px 0;
     background: var(--light-bg);
@@ -506,7 +496,7 @@ body {
 }
 
 .about-image {
-    display: inline-flex; /* Changed from flex */
+    display: inline-flex; 
     justify-content: center;
     padding: 4px;
     background: var(--gradient-primary);
@@ -525,10 +515,9 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--dark-bg); /* Add a border to create space */
+    border: 4px solid var(--dark-bg);
 }
 
-/* Friends Section */
 .friends {
     padding: 100px 0;
     background: var(--dark-bg);
@@ -650,7 +639,6 @@ body {
     margin: 0 auto;
 }
 
-/* Carousel Controls */
 .carousel-btn {
     background: var(--primary-color);
     color: var(--dark-bg);
@@ -679,7 +667,6 @@ body {
     transform: none;
 }
 
-/* Carousel Dots */
 .carousel-dots {
     display: flex;
     justify-content: center;
@@ -705,7 +692,6 @@ body {
     background: var(--accent-color);
 }
 
-/* Projects Section */
 .projects {
     padding: 100px 0;
 }
@@ -810,7 +796,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Skills Section */
 .skills {
     padding: 100px 0;
     background: var(--light-bg);
@@ -871,9 +856,6 @@ body {
     transition: width 1s ease;
 }
 
-
-
-/* Footer */
 .footer {
     background: var(--darker-bg);
     padding: 30px 0;
@@ -885,7 +867,6 @@ body {
     color: var(--text-muted);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
         justify-content: space-between;
@@ -1005,12 +986,10 @@ body {
     }
 }
 
-/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Animation classes */
 .fade-in {
     animation: fadeIn 0.6s ease-in;
 }
