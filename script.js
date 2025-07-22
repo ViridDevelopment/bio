@@ -15,7 +15,7 @@ class BootupAnimation {
             "Connecting to database...",
             "Loading user interface...",
             "Initializing...",
-            "Welcome to my bio page gng",
+            "Welcome gng",
             "",
             "System ready. Opening Milderous.exe...",
             "",
@@ -26,7 +26,7 @@ class BootupAnimation {
             "> Loading tv off.mp3...",
             "> Website loaded successfully!",
             "",
-            "idc if this looks cheesy, bite me",
+            "idc if this looks corny, eat this veiny ahh dihh",
             "",
             "Closing Terminal..."
         ];
