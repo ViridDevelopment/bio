@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milderous</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Bootup Animation Container -->
+    <div id="bootup-container" class="bootup-container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button close"></span>
+                    <span class="terminal-button minimize"></span>
+                    <span class="terminal-button maximize"></span>
+                </div>
+                <div class="terminal-title">Milderous@MacbookAir:~$</div>
+            </div>
+            <div class="terminal-content">
+                <div id="bootup-text" class="bootup-text"></div>
+                <div class="cursor"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden during bootup) -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-text">Milderous@MacbookAir:~$</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#friends" class="nav-link">Friends</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button id="music-toggle" class="music-btn" title="Play/Pause Music">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Milderous</span>
+                        <span class="title">Owner of Cherry Sideloading</span>
+                    </h1>
+                    <p class="hero-description">
+                        I am a Web Developer and college student.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-title">sigma.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>class Developer {
+  Build() {
+    this.name = Milderous;
+    this.skills = ['Diagnosing shet', 'Html  ', 'Css'];
+    this.le-pasion = 'Cherry Sideloading';
+  }
+  
+  code() {
+    return 'MUSTARD';
+  }
+}
+
+const me = new Developer('Milderous');
+console.log(me.code());</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            Hello, I am Milderous, the man who has carried on the legacy of SamHub and GabeHub. While i may not be famous, i do my best. I like Money 🤑
+                        </p>
+                        <p>
+                            When I'm not coding, Im bullying skids or friends. I am addicted to Games 🙏
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Projects Completed/In Progress</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">CBA</span>
+                            </div>
+                        </div>
+                        <div class="about-links">
+                            <a href="https://www.buymeacoffee.com/milderous" target="_blank" class="about-link coffee"><i class="fas fa-coffee"></i> Buy Me a Coffee</a>
+                            <a href="https://discord.gg/yourdiscord" target="_blank" class="about-link discord"><i class="fab fa-discord"></i> Discord</a>
+                            <a href="https://x.com/milderous" target="_blank" class="about-link x"><i class="fa-brands fa-x-twitter"></i> X</a>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="profile.png" alt="Milderous" class="profile-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="friends" class="friends">
+            <div class="container">
+                <h2 class="section-title">Morons</h2>
+                <div class="friends-carousel">
+                    <button class="carousel-btn prev-btn" id="prev-friend">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="friends-track">
+                            <a href="https://samhub.dev" target="_blank" class="friend-card active">
+                                <div class="friend-image">
+                                    <img src="friend1.jpg" alt="Sam" class="friend-photo">
+                                </div>
+                                <div class="friend-content">
+                                    <h3 class="friend-name">Sam</h3>
+                                    <p class="friend-title">iOS Developer & Sideloading Expert</p>
+                                    <p class="friend-description">
+                                        The dude who inspired me to stick around for the sideloading scene. id ask him what i should write but he left.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="https://gabehub.dev" target="_blank" class="friend-card">
+                                <div class="friend-image">
+                                    <img src="friend2.jpg" alt="GabeHub" class="friend-photo">
+                                </div>
+                                <div class="friend-content">
+                                    <h3 class="friend-name">Gabe</h3>
+                                    <p class="friend-title">Passed the torch to me</p>
+                                    <p class="friend-description">
+                                        A brilliant Friend who taught me how to trust others and be reliable. Chefs kiss to this man
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="https://dackdev.com" target="_blank" class="friend-card">
+                                <div class="friend-image">
+                                    <img src="dack.png" alt="DackDev" class="friend-photo">
+                                </div>
+                                <div class="friend-content">
+                                    <h3 class="friend-name">DuckDev</h3>
+                                    <p class="friend-title">Web Developer</p>
+                                    <p class="friend-description">
+                                        A beginner Develepor looking to engage in major projects... and he quacks
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="https://loyah.dev" target="_blank" class="friend-card">
+                                <div class="friend-image">
+                                    <img src="friend4.jpg" alt="Loyah" class="friend-photo">
+                                </div>
+                                <div class="friend-content">
+                                    <h3 class="friend-name">LoyahDev</h3>
+                                    <p class="friend-title">Backend Developer & Music Artist</p>
+                                    <p class="friend-description">
+                                        
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" id="next-friend">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="carousel-dots" id="friends-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Sideloading stuffs</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Aurora Signer</h3>
+                            <p class="project-description">
+                                The best way to sign your apps... And the fastest.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Html</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link btn btn-primary">Use Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Viridium App</h3>
+                            <p class="project-description">
+                                A collosal IPA Library with quick access to sideloading tools.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Swift</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link btn btn-primary">Use Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Frontend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">HTML</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Javascript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">IRL</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Anything Hardware</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MTB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Photography</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Milderous. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="tvoff.mp3" type="audio/mp3">
+    </audio>
+    
+    <audio id="elevator-music" loop>
+        <source src="waiting.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+    <canvas id="vhs-noise" style="pointer-events:none; position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:99999;"></canvas>
+</body>
+</html> 
