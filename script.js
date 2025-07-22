@@ -1,4 +1,3 @@
-// Bootup Animation Sequence
 class BootupAnimation {
     constructor() {
         this.bootupText = document.getElementById('bootup-text');
@@ -55,13 +54,11 @@ class BootupAnimation {
             if (index < line.length) {
                 this.bootupText.textContent += line[index];
                 index++;
-                setTimeout(typeChar, Math.random() * 50 + 20); // Random typing speed
+                setTimeout(typeChar, Math.random() * 50 + 20); 
             } else {
                 this.isTyping = false;
                 this.bootupText.textContent += '\n';
                 this.currentLine++;
-                
-                // Add delay before next line
                 setTimeout(() => {
                     if (this.currentLine < this.bootupSequence.length) {
                         this.startTyping();
@@ -76,11 +73,9 @@ class BootupAnimation {
     }
     
     waitForInput() {
-        // Add blinking cursor and wait for user input
         const cursor = document.querySelector('.cursor');
         cursor.style.display = 'inline';
-        
-        // Auto-proceed after 3 seconds
+
         setTimeout(() => {
             this.completeBootup();
         }, 3000);
@@ -93,12 +88,10 @@ class BootupAnimation {
             }
         });
 
-        // Add click listener to enable audio
         this.bootupContainer.addEventListener('click', () => {
             const elevatorMusic = document.getElementById('elevator-music');
             if (elevatorMusic && elevatorMusic.paused) {
                 elevatorMusic.play().then(() => {
-                    // Remove the click indicator
                     this.bootupContainer.style.cursor = 'default';
                     this.bootupContainer.classList.add('audio-enabled');
                 }).catch(e => {
@@ -109,40 +102,31 @@ class BootupAnimation {
     }
     
     completeBootup() {
-        // Stop elevator music immediately
         const elevatorMusic = document.getElementById('elevator-music');
         if (elevatorMusic) {
             elevatorMusic.pause();
             elevatorMusic.currentTime = 0;
         }
         
-        // Fade out bootup container
         this.bootupContainer.classList.add('fade-out');
         
-        // Show main content
         setTimeout(() => {
             this.mainContent.classList.remove('hidden');
             this.bootupContainer.style.display = 'none';
             this.initMainContent();
-            // Start music after bootup
             this.startMusicAfterBootup();
-            // Start hero code typing animation
             startHeroCodeTyping();
         }, 500);
     }
 
     startElevatorMusic() {
-        // Start elevator music during bootup
         const elevatorMusic = document.getElementById('elevator-music');
         if (elevatorMusic) {
-            elevatorMusic.volume = 0.3; // Set volume to 30%
-            
-            // Try to play with user interaction
+            elevatorMusic.volume = 0.3;
             const playPromise = elevatorMusic.play();
             if (playPromise !== undefined) {
                             playPromise.catch(e => {
                 console.log('Elevator music autoplay blocked:', e);
-                // Audio will be enabled when user clicks
             });
             }
         }
@@ -151,17 +135,16 @@ class BootupAnimation {
 
 
     startMusicAfterBootup() {
-        // Auto-start main music after bootup animation
+
         setTimeout(() => {
             const musicBtn = document.getElementById('music-toggle');
             if (musicBtn) {
-                musicBtn.click(); // Trigger music play
+                musicBtn.click();
             }
         }, 1000);
     }
 }
 
-// Main Application
 class PortfolioApp {
     constructor() {
         this.init();
@@ -179,8 +162,6 @@ class PortfolioApp {
     initNavigation() {
         const navbar = document.querySelector('.navbar');
         const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Smooth scrolling for navigation links
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -188,7 +169,7 @@ class PortfolioApp {
                 const targetSection = document.querySelector(targetId);
                 
                 if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
+                    const offsetTop = targetSection.offsetTop - 70; 
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -196,8 +177,7 @@ class PortfolioApp {
                 }
             });
         });
-        
-        // Navbar background on scroll
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(10, 10, 10, 0.98)';
@@ -221,7 +201,6 @@ class PortfolioApp {
             });
         }, observerOptions);
         
-        // Observe all sections and cards
         const sections = document.querySelectorAll('section');
         const cards = document.querySelectorAll('.project-card, .skill-category');
         
@@ -260,8 +239,7 @@ class PortfolioApp {
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
             });
-            
-            // Close menu when clicking on a link
+
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -288,7 +266,6 @@ class PortfolioApp {
                 } else {
                     audio.play().catch(e => {
                         console.log('Audio play failed:', e);
-                        // Show notification if autoplay is blocked
                         this.showNotification('Click the music button to start playing!', 'info');
                     });
                     musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
@@ -297,9 +274,8 @@ class PortfolioApp {
                 }
             });
 
-            // Handle audio events
             audio.addEventListener('ended', () => {
-                if (audio.loop) return; // Don't reset if looping
+                if (audio.loop) return;
                 musicBtn.innerHTML = '<i class="fas fa-play"></i>';
                 musicBtn.classList.remove('playing');
                 isPlaying = false;
@@ -325,25 +301,20 @@ class PortfolioApp {
         const totalCards = cards.length;
         
         function updateCarousel() {
-            // Update track position
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            // Update active states
             cards.forEach((card, index) => {
                 card.classList.toggle('active', index === currentIndex);
             });
             
-            // Update dots
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
             
-            // Update button states
             prevBtn.disabled = currentIndex === 0;
             nextBtn.disabled = currentIndex === totalCards - 1;
         }
         
-        // Button controls
         prevBtn.addEventListener('click', () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -358,15 +329,13 @@ class PortfolioApp {
             }
         });
         
-        // Dot controls
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentIndex = index;
                 updateCarousel();
             });
         });
-        
-        // Keyboard controls
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft' && currentIndex > 0) {
                 currentIndex--;
@@ -377,37 +346,32 @@ class PortfolioApp {
             }
         });
         
-        // Auto-play (optional)
         let autoPlayInterval;
         
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % totalCards;
                 updateCarousel();
-            }, 5000); // Change slide every 5 seconds
+            }, 5000); 
         }
         
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
-        
-        // Start auto-play and stop on user interaction
+
         startAutoPlay();
         
         track.addEventListener('mouseenter', stopAutoPlay);
         track.addEventListener('mouseleave', startAutoPlay);
-        
-        // Initialize
+
         updateCarousel();
     }
     
     showNotification(message, type = 'info') {
-        // Create notification element
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
         
-        // Style the notification
         notification.style.cssText = `
             position: fixed;
             top: 20px;
@@ -423,13 +387,11 @@ class PortfolioApp {
         `;
         
         document.body.appendChild(notification);
-        
-        // Animate in
+
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 100);
-        
-        // Remove after 3 seconds
+
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
@@ -439,20 +401,16 @@ class PortfolioApp {
     }
 }
 
-// Initialize the application when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Start bootup animation
     new BootupAnimation();
     
-    // Initialize main app after bootup
     setTimeout(() => {
         new PortfolioApp();
     }, 1000);
 });
 
-// Add some interactive features
 document.addEventListener('DOMContentLoaded', () => {
-    // Add typing effect to code window
     const codeElement = document.querySelector('.code-content code');
     if (codeElement) {
         const originalText = codeElement.textContent;
@@ -466,8 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(typeCode, 50);
             }
         };
-        
-        // Start typing when code window is visible
+
         const codeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -481,8 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
-    
-    // Add hover effects to project cards
+
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -494,11 +450,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add click effects to buttons
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Create ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
@@ -544,7 +498,6 @@ function startHeroCodeTyping() {
     }
 }
 
-// VHS Noise Effect
 function startVHSNoise() {
     const canvas = document.getElementById('vhs-noise');
     if (!canvas) return;
@@ -563,26 +516,26 @@ function startVHSNoise() {
 
     function drawNoise() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Draw random white lines
-        const lineCount = Math.floor(Math.random() * 8) + 6; // 6-13 lines per frame
+
+        const lineCount = Math.floor(Math.random() * 8) + 6; 
         for (let i = 0; i < lineCount; i++) {
             const y = Math.random() * canvas.height;
-            const lineLength = Math.random() * (canvas.width * 0.5) + 40; // 40px to 50% width
+            const lineLength = Math.random() * (canvas.width * 0.5) + 40;
             let x;
-            // 40% chance left, 40% right, 20% anywhere
+
             const sideChance = Math.random();
             if (sideChance < 0.4) {
-                // Group left
+
                 x = Math.random() * (canvas.width * 0.25);
             } else if (sideChance < 0.8) {
-                // Group right
+
                 x = canvas.width - (Math.random() * (canvas.width * 0.25) + lineLength);
             } else {
-                // Anywhere
+
                 x = Math.random() * (canvas.width - lineLength);
             }
-            const thickness = Math.random() * 2 + 1; // 1-3px
-            // More variant opacities
+            const thickness = Math.random() * 2 + 1;
+
             const opacities = [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85];
             const opacity = opacities[Math.floor(Math.random() * opacities.length)];
             ctx.save();
@@ -612,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
     startVHSNoise();
 });
 
-// Add CSS for ripple animation
 const style = document.createElement('style');
 style.textContent = `
     @keyframes ripple {
